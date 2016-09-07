@@ -1,14 +1,13 @@
 
-import numpy as np
-
 from gamma_functions import *
 
+import numpy as np
 from scipy.optimize import brentq 
 import scipy.integrate as integrate
 
-
 # mu = \int_0^1 x f_ab(x) dx
 # Given mu,a what is b?
+
 
 def root_f(b):
 

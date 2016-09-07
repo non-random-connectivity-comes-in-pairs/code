@@ -42,6 +42,6 @@ ax.set_xlim(0.2,100)
 
 ax.legend()
 
-pl.savefig('beta_alpha.pdf', dpi=600, bbox_inches='tight')
+pl.savefig('gamma_figB.pdf', dpi=600, bbox_inches='tight')
 
 

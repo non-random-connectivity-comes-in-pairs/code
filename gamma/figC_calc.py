@@ -13,10 +13,12 @@ rhos = []
 
 for a,b in zip(a_ns,b_ns):
 
-    numer = integrate.quad(lambda x:x**2*f(x,a,b),0,1)[0]
-    denom = (integrate.quad(lambda x: x*f(x,a,b), 0,1)[0])**2
+    numer = integrate.quad(lambda x:x**2*fT(x,a,b),0,1)[0]
+    denom = (integrate.quad(lambda x: x*fT(x,a,b), 0,1)[0])**2
     
     rho = numer/denom
+
+    print a, "\t", b, "\t", rho
 
     rhos.append(rho)
 

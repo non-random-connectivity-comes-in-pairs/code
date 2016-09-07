@@ -92,6 +92,6 @@ ax_right.set_yticks([0., 0.1, 0.2, 0.3,0.4, 0.5])
 
 ax_right.yaxis.tick_right()
 
-pl.savefig('gamma_figure_A.pdf', dpi=600, bbox_inches='tight')
+pl.savefig('gamma_figA.pdf', dpi=600, bbox_inches='tight')
 
 
