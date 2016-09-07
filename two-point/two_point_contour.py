@@ -48,5 +48,5 @@ pl.xticks(list(pl.xticks()[0]) + [0.1],
 
 pl.title(r'$\mu = 0.1$')
 
-pl.savefig('contour_plot.pdf', dpi=600, bbox_inches='tight')
+pl.savefig('two_point_contour.pdf', dpi=600, bbox_inches='tight')
 
