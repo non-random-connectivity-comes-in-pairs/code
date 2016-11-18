@@ -78,7 +78,9 @@ if __name__ == '__main__':
     import os, pickle
 
     data_frame = []
-    with open("data/data_label.p", "wb") as pfile:
+    label = "prerun_4_alpha_0-05_sigma.p"
+    
+    with open("data/" + label, "wb") as pfile:
         pickle.dump(data_frame, pfile)
 
     for alph, bet in zip(alphas,betas):
@@ -93,19 +95,19 @@ if __name__ == '__main__':
                 
                 data = {"alpha": alph, "beta": bet, "mu": mu, "sigma": sigma}
             
-                # xs = rv.rvs(size=n_pairs)
-                # ys = []
-                # for x in xs:
-                #     y = sample_rv_mult_norm(x, rv, sigma)
-                #     ys.append(y)
+                xs = rv.rvs(size=n_pairs)
+                ys = []
+                for x in xs:
+                    y = sample_rv_mult_norm(x, rv, sigma)
+                    ys.append(y)
                 
-                # data["xs"]=xs
-                # data["ys"]=np.array(ys)
+                data["xs"]=xs
+                data["ys"]=np.array(ys)
 
                 data_frame.append(data)
 
-                os.rename("data/data_label.p", "tmp/data_label.p")
-                with open("data/data_label.p", "wb") as pfile:
+                os.rename("data/" + label, "tmp/" + label)
+                with open("data/" + label, "wb") as pfile:
                     pickle.dump(data_frame, pfile)
             
 
