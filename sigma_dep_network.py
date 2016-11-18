@@ -78,7 +78,7 @@ if __name__ == '__main__':
     import os, pickle
 
     data_frame = []
-    label = "prerun_4_alpha_0-05_sigma.p"
+    label = "4_alpha_0-05_sigma.p"
     
     with open("data/" + label, "wb") as pfile:
         pickle.dump(data_frame, pfile)
