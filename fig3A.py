@@ -20,7 +20,7 @@ pl.rcParams['text.latex.preamble'] = [
 
 
 fig, ax = pl.subplots(1,1)
-fig.set_size_inches(4.1,2.8)
+fig.set_size_inches(7.5*0.5,2.3)
 
 #fig.suptitle(r'$\mu = 0.1$', fontsize=15)
 
@@ -86,15 +86,18 @@ ws = []
 for x in xs:
     ws.append(norm.pdf(x,loc=xloc,scale=sig))
     
-    
-ax.plot(xs,us, 'k', linestyle='--')
-ax.plot(xs,zs, 'k')
+ax.plot(xs,rs, 'k', linestyle=':', label=r'$\sigma = 0.025$')
+ax.plot(xs,zs, 'k', label=r'$\sigma=0.065$')
+ax.plot(xs,us, 'k', linestyle='--', label=r'$\sigma=1$')
 #ax.plot(xs,ys)
 #ax.plot(xs,zcs)
 #ax.plot(xs,ws)
-ax.plot(xs,rs, 'k', linestyle=':')
+
 ax.set_ylim(0,16)
-ax.set_xlim(0,0.3)
+ax.set_xlim(0,0.4)
+
+pl.xticks([0.,0.1,0.15,0.2,0.3,0.4], ['0.0', '0.1', r'$\mathbf{x}$', '0.2', '0.3','0.4'])
+ax.set_title(r'$f_{P_{ij}}(y) = f_{\alpha,\beta}^T(y)$')
 
 ax.set_ylabel(r'$f_{P_{ji} | P_{ij}}(y \mid x)$')
 ax.set_xlabel(r'$y$')
@@ -118,5 +121,6 @@ ax.set_xlabel(r'$y$')
 # ax_right.set_yticks([0., 0.1, 0.2, 0.3,0.4, 0.5])
 
 # ax_right.yaxis.tick_right()
+pl.legend(prop={'size':12})
 
 pl.savefig('fig3A.pdf', dpi=600, bbox_inches='tight')
