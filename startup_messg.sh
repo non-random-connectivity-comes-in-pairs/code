@@ -1,1 +1,1 @@
-echo "No Sumatra. Just for explorative research."
+echo "A scientific Python3 environment."
