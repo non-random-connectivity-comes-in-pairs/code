@@ -45,6 +45,15 @@ b_ns =  [0.486852833106356, 0.10004560945459162,
 # sig = 0.035
 
 
+# idx =0
+# xloc = 0.15
+# sig = 0.0005
+
+# ts = []
+# Nf = integrate.quad(lambda s: fT(s,a_ns[idx],b_ns[idx])*norm.pdf(s,loc=xloc, scale=sig),0,1)[0]
+# for x in xs:
+#     ts.append(fT(x, a_ns[idx], b_ns[idx]) *norm.pdf(x,loc=xloc,scale=sig)/Nf)
+
 
 idx =0
 xloc = 0.15
@@ -85,10 +94,12 @@ for x in xs:
 ws = []
 for x in xs:
     ws.append(norm.pdf(x,loc=xloc,scale=sig))
-    
-ax.plot(xs,rs, 'k', linestyle=':', label=r'$\sigma = 0.025$')
-ax.plot(xs,zs, 'k', label=r'$\sigma=0.065$')
-ax.plot(xs,us, 'k', linestyle='--', label=r'$\sigma=1$')
+
+#ax.plot(xs,ts, 'k', linestyle="-.", label=r'$\sigma = 0.005$')
+ax.axvline(x=0.15, ymin=0., ymax=16., color='k', linestyle=":", label=r'$\sigma \to 0$')
+ax.plot(xs,rs, 'k', linestyle='-.', label=r'$\sigma = 0.025$')
+ax.plot(xs,zs, 'k', linestyle='--', label=r'$\sigma=0.065$')
+ax.plot(xs,us, 'k', linestyle='-', label=r'$\sigma=1$')
 #ax.plot(xs,ys)
 #ax.plot(xs,zcs)
 #ax.plot(xs,ws)
