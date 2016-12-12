@@ -124,7 +124,7 @@ fig.set_size_inches(7.5*0.5,2.3)
 
 pl.plot(xs,ys, 'k', label=r'$\alpha=0.248$')
 (_, caps, _) = pl.errorbar(sample_sigs, rhos_a0248, yerr=rhos_a0248_sem,
-                           fmt=None, ecolor='k', elinewidth=1.5,)
+                           fmt="None", ecolor='k', elinewidth=1.5,)
 for cap in caps:
     cap.set_markeredgewidth(0.8)
 
@@ -132,12 +132,12 @@ pl.plot(t_sigs_a1, t_rhos_a1, 'k', linestyle=':', label=r'$\alpha=1$')
 pl.plot(t_sigs_a2, t_rhos_a2, 'k', linestyle='--', label=r'$\alpha=2$')
 
 (_, caps, _) = pl.errorbar(gn_a1_sample_sigs, gn_a1_rhos, yerr=gn_a1_rho_sems,
-                           fmt=None, ecolor = 'r', elinewidth=1.5,)
+                           fmt="None", ecolor = 'r', elinewidth=1.5,)
 for cap in caps:
     cap.set_markeredgewidth(0.8)
     
 (_, caps, _) = pl.errorbar(gn_a2_sample_sigs, gn_a2_rhos, yerr=gn_a2_rho_sems,
-                           fmt=None, ecolor = 'r', elinewidth=1.5,)
+                           fmt="None", ecolor = 'r', elinewidth=1.5,)
 for cap in caps:
     cap.set_markeredgewidth(0.8)
 
