@@ -1,1 +1,1 @@
-echo "Scientific Python3 environment'
+echo "Scientific Python3 environment"

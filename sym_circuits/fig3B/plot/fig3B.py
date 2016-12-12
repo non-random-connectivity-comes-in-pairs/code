@@ -89,18 +89,33 @@ ys = 1.086317 + (4.043159 - 1.086317)/(1 + (xs/0.2587529)**3.275628)
 
 # ----- data from generated networks -----
 
-with open("data/gn_a1_sig05_1.p", "rb") as pfile:
+# a = 1
+with open("data/gn_a1_sig05.p", "rb") as pfile:
     df = pickle.load(pfile, encoding='latin1')
-
-gn_sample_sigs = list(set([d["sig"] for d in df]))
+    
+gn_a1_sample_sigs = list(set([d["sig"] for d in df]))
 
 gn_a1_rhos = []
 gn_a1_rho_sems = []
-for sig in gn_sample_sigs:
+for sig in gn_a1_sample_sigs:
     df_sig  = [d for d in df if d["sig"]==sig]
     gn_a1_rhos.append(np.mean([d["rho"] for d in df_sig]))
     gn_a1_rho_sems.append(sem([d["rho"] for d in df_sig]))
 
+    
+# a = 2
+with open("data/gn_a2_sig05.p", "rb") as pfile:
+    df = pickle.load(pfile, encoding='latin1')
+    
+gn_a2_sample_sigs = list(set([d["sig"] for d in df]))
+
+gn_a2_rhos = []
+gn_a2_rho_sems = []
+for sig in gn_a2_sample_sigs:
+    df_sig  = [d for d in df if d["sig"]==sig]
+    gn_a2_rhos.append(np.mean([d["rho"] for d in df_sig]))
+    gn_a2_rho_sems.append(sem([d["rho"] for d in df_sig]))
+    
 
     
 
@@ -116,7 +131,12 @@ for cap in caps:
 pl.plot(t_sigs_a1, t_rhos_a1, 'k', linestyle=':', label=r'$\alpha=1$')
 pl.plot(t_sigs_a2, t_rhos_a2, 'k', linestyle='--', label=r'$\alpha=2$')
 
-(_, caps, _) = pl.errorbar(gn_sample_sigs, gn_a1_rhos, yerr=gn_a1_rho_sems,
+(_, caps, _) = pl.errorbar(gn_a1_sample_sigs, gn_a1_rhos, yerr=gn_a1_rho_sems,
+                           fmt=None, ecolor = 'r', elinewidth=1.5,)
+for cap in caps:
+    cap.set_markeredgewidth(0.8)
+    
+(_, caps, _) = pl.errorbar(gn_a2_sample_sigs, gn_a2_rhos, yerr=gn_a2_rho_sems,
                            fmt=None, ecolor = 'r', elinewidth=1.5,)
 for cap in caps:
     cap.set_markeredgewidth(0.8)
