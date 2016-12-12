@@ -1,0 +1,8 @@
+
+* setup
+
+It was used 
+
+#+BEGIN_SRC 
+smt init fig3_lab  --datapath=./data/ --input=./data/ 
+#+END_SRC
